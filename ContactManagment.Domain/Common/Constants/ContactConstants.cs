@@ -1,6 +1,6 @@
 ﻿namespace ContactManagment.Domain.Common.Constants
 {
-    public static class Contact
+    public static class ContactConstants
     {
         public const int FirstNameMaxLength = 50;
         public const int SurNameMaxLength = 50;
