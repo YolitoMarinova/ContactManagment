@@ -9,29 +9,29 @@ namespace ContactManagment.Domain.Entities
         public Guid Id { get; private set; } = new Guid();
         public string FirstName { get; private set; }
         public string SurName { get; private set; }
-        public Date DateOfBirth { get; private set; }
+        public DateOnly DateOfBirth { get; private set; }
         public string Address { get; private set; }
         public string PhoneNumber { get; private set; }
-        public string IBAN { get; private set; }
+        public string Iban { get; private set; }
 
-        public Contact(string firstName, string surName, Date dateOfBirth, string address, string phoneNumber, string iban)
+        public Contact(string firstName, string surName, DateOnly dateOfBirth, string address, string phoneNumber, string iban)
         {
             FirstName = ValidateFirstName(firstName);
             SurName = ValidateSurName(surName);
             DateOfBirth = dateOfBirth;
             Address = ValidateAddress(address);
             PhoneNumber = ValidatePhoneNumber(phoneNumber);
-            IBAN = ValidateIBAN(iban);
+            Iban = ValidateIBAN(iban);
         }
 
-        public void Update(string firstName, string surName, Date dateOfBirth, string address, string phoneNumber, string iban)
+        public void Update(string firstName, string surName, DateOnly dateOfBirth, string address, string phoneNumber, string iban)
         {
             FirstName = ValidateFirstName(firstName);
             SurName = ValidateSurName(surName);
             DateOfBirth = dateOfBirth;
             Address = ValidateAddress(address);
             PhoneNumber = ValidatePhoneNumber(phoneNumber);
-            IBAN = ValidateIBAN(iban);
+            Iban = ValidateIBAN(iban);
         }
 
         private string ValidateFirstName(string firstName)
