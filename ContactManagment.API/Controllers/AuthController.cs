@@ -1,4 +1,4 @@
-using ContactManagment.API;
+using ContactManagment.Application.Dtos.User;
 using ContactManagment.API.Config;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -19,7 +19,7 @@ public class AuthController: ControllerBase
     }
 
     [HttpPost("login")]
-    public IActionResult Login([FromBody] UserLogin request)
+    public IActionResult Login([FromBody] UserLoginDto request)
     {
         if (request.Username == "admin" && request.Password == "admin")
         {
