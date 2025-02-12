@@ -1,6 +1,5 @@
 ﻿using ContactManagment.Domain.Common.Constants;
 using ContactManagment.Domain.Common.Errors;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ContactManagment.Domain.Entities
 {
@@ -24,14 +23,14 @@ namespace ContactManagment.Domain.Entities
             Iban = ValidateIBAN(iban);
         }
 
-        public void Update(string firstName, string surName, DateOnly dateOfBirth, string address, string phoneNumber, string iban)
+        public void Update(string? firstName, string? surName, DateOnly? dateOfBirth, string? address, string? phoneNumber, string? iban)
         {
-            FirstName = ValidateFirstName(firstName);
-            SurName = ValidateSurName(surName);
-            DateOfBirth = dateOfBirth;
-            Address = ValidateAddress(address);
-            PhoneNumber = ValidatePhoneNumber(phoneNumber);
-            Iban = ValidateIBAN(iban);
+            FirstName = firstName != null ? ValidateFirstName(firstName) : FirstName;
+            SurName = surName != null ? ValidateSurName(surName) : SurName;
+            DateOfBirth = dateOfBirth ?? DateOfBirth;
+            Address = address != null ? ValidateAddress(address) : Address;
+            PhoneNumber = phoneNumber != null ? ValidatePhoneNumber(phoneNumber) : PhoneNumber;
+            Iban = iban != null ? ValidateIBAN(iban) : Iban;
         }
 
         private string ValidateFirstName(string firstName)

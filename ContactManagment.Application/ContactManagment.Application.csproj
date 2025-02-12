@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ContactManagment.Domain\ContactManagment.Domain.csproj" />
     <ProjectReference Include="..\ContactManagment.Infrastructure.Persistence\ContactManagment.Infrastructure.Persistence.csproj" />
   </ItemGroup>
 
