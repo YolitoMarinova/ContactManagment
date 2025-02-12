@@ -1,5 +1,4 @@
-﻿using ContactManagment.Application.Contact.Dtos;
-using MediatR;
+﻿using MediatR;
 
 namespace ContactManagment.Application.Contact.Commands.UpdateContactCommand
 {

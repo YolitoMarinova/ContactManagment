@@ -4,10 +4,12 @@ using ContactManagment.Application.Contact.Commands.UpdateContactCommand;
 using ContactManagment.Application.Contact.Queries.GetAllContactQuery;
 using ContactManagment.Application.Contact.Queries.GetByIdContactQuery;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContactManagment.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ContactController : ControllerBase

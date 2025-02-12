@@ -3,8 +3,5 @@ using MediatR;
 
 namespace ContactManagment.Application.Contact.Queries.GetAllContactQuery
 {
-    public record GetAllContactQuery : IRequest<List<ContactDto>>
-    {
-
-    }
+    public record GetAllContactQuery : IRequest<List<ContactDto>>;
 }
