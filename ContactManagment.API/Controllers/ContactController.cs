@@ -5,6 +5,7 @@ using ContactManagment.Application.Contact.Queries.GetAllContactQuery;
 using ContactManagment.Application.Contact.Queries.GetByIdContactQuery;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContactManagment.API.Controllers
@@ -56,7 +57,13 @@ namespace ContactManagment.API.Controllers
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] UpdateContactCommand command)
         {
-            await _mediator.Send(command);
+            var result = await _mediator.Send(command);
+
+            if(!result)
+            {
+                return NotFound();
+            }
+
             return NoContent();
         }
 

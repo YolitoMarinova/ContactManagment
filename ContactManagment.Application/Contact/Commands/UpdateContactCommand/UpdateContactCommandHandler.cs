@@ -4,14 +4,14 @@ using MediatR;
 namespace ContactManagment.Application.Contact.Commands.UpdateContactCommand
 {
     public class UpdateContactCommandHandler(ContactManagmentDbContext dbContext) :
-        IRequestHandler<UpdateContactCommand>
+        IRequestHandler<UpdateContactCommand, bool>
     {
-        public async Task Handle(UpdateContactCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(UpdateContactCommand request, CancellationToken cancellationToken)
         {
             var contact = await dbContext.Contacts.FindAsync(request.Id);
             if (contact == null)
             {
-                return;
+                return false;
             }
             contact.Update(
                 request.FirstName, 
@@ -24,6 +24,8 @@ namespace ContactManagment.Application.Contact.Commands.UpdateContactCommand
 
             //We can use change tracker so to avoid unnecessary DB calls
             await dbContext.SaveChangesAsync();
+
+            return true;
         }
     }
 }
