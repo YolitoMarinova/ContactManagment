@@ -1,4 +1,4 @@
-using ContactManagment.Application.Dtos.User;
+using ContactManagment.Application.User.Dtos;
 using ContactManagment.API.Config;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;

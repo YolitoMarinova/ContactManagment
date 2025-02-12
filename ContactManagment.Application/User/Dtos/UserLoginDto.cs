@@ -1,4 +1,4 @@
-﻿namespace ContactManagment.Application.Dtos.User
+﻿namespace ContactManagment.Application.User.Dtos
 {
     public class UserLoginDto
     {
