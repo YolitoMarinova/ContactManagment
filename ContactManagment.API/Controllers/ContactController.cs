@@ -5,7 +5,6 @@ using ContactManagment.Application.Contact.Queries.GetAllContactQuery;
 using ContactManagment.Application.Contact.Queries.GetByIdContactQuery;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContactManagment.API.Controllers
