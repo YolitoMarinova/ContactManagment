@@ -3,7 +3,7 @@ using ContactManagment.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ContactManagment.Infrastructure.Configuration
+namespace ContactManagment.Infrastructure.Persistence.Configuration
 {
     public class ContactConfiguration : IEntityTypeConfiguration<Contact>
     {

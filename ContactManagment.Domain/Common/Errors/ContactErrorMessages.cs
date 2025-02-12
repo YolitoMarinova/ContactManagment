@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ContactManagment.Domain.Common.Errors
+﻿namespace ContactManagment.Domain.Common.Errors
 {
     public static class ContactErrorMessages
     {

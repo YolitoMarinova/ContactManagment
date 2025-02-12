@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManagment.Infrastruc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManagment.Tests", "ContactManagment.Tests\ContactManagment.Tests.csproj", "{AF7D6554-B3BB-4686-9E0F-2566AE5F5944}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManagment.Infrastructure.Persistence", "ContactManagment.Infrastructure.Persistence\ContactManagment.Infrastructure.Persistence.csproj", "{5CF58F9E-B3AD-46EB-B2EA-836D649FCDBC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{AF7D6554-B3BB-4686-9E0F-2566AE5F5944}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF7D6554-B3BB-4686-9E0F-2566AE5F5944}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF7D6554-B3BB-4686-9E0F-2566AE5F5944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CF58F9E-B3AD-46EB-B2EA-836D649FCDBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CF58F9E-B3AD-46EB-B2EA-836D649FCDBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CF58F9E-B3AD-46EB-B2EA-836D649FCDBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CF58F9E-B3AD-46EB-B2EA-836D649FCDBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
