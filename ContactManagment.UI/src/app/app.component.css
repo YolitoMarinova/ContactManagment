@@ -1,0 +1,33 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+button {
+  margin: 5px;
+  padding: 8px 12px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+th {
+  background-color: #f4f4f4;
+}
