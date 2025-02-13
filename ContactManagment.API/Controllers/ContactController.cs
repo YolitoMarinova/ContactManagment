@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ContactManagment.API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ContactController : ControllerBase
@@ -44,13 +44,13 @@ namespace ContactManagment.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateContactCommand command)
         {
-            var contactId = await _mediator.Send(command);
+            var contact = await _mediator.Send(command);
 
-            if(contactId == Guid.Empty)
+            if(contact == null)
             {
                 return BadRequest();
             }
-            return Ok(new { id = contactId });
+            return Ok(contact);
         }
 
         [HttpPut]

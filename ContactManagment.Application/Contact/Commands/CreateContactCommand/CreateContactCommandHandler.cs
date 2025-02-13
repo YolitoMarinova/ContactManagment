@@ -1,12 +1,13 @@
-﻿using ContactManagment.Infrastructure.Persistence;
+﻿using ContactManagment.Application.Contact.Dtos;
+using ContactManagment.Infrastructure.Persistence;
 using MediatR;
 
 namespace ContactManagment.Application.Contact.Commands.CreateContactCommand
 {
     public class CreateContactCommandHandler(ContactManagmentDbContext dbContext) :
-        IRequestHandler<CreateContactCommand, Guid>
+        IRequestHandler<CreateContactCommand, ContactDto>
     {
-        public async Task<Guid> Handle(CreateContactCommand request, CancellationToken cancellationToken)
+        public async Task<ContactDto> Handle(CreateContactCommand request, CancellationToken cancellationToken)
         {
             var contact = new Domain.Entities.Contact(
                 request.FirstName,
@@ -19,7 +20,15 @@ namespace ContactManagment.Application.Contact.Commands.CreateContactCommand
 
             await dbContext.Contacts.AddAsync(contact, cancellationToken);
             await dbContext.SaveChangesAsync(cancellationToken);
-            return contact.Id;
+            return new ContactDto(
+                contact.Id,
+                contact.FirstName,
+                contact.SurName,
+                contact.DateOfBirth,
+                contact.Address,
+                contact.PhoneNumber,
+                contact.Iban
+            );
         }
     }
 }
