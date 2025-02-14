@@ -1,6 +1,6 @@
 <p-toolbar styleClass="mb-6">
   <ng-template #start>
-    <p-button label="New" icon="pi pi-plus" class="mr-2" (onClick)="openNew()" />
+    <p-button label="New" icon="pi pi-plus" class="mr-2" (onClick)="openNew()" data-testid="add-contact-button"/>
   </ng-template>
 
   <ng-template #end>
@@ -50,7 +50,7 @@
       </div>
       <div>
         <label for="dateOfBirth" class="block font-bold mb-3">Date of Birth</label>
-        <p-datepicker [(ngModel)]="newContact.dateOfBirth" [showIcon]="true" inputId="buttondisplay" [showOnFocus]="false" required autofocus fluid />
+        <p-datepicker id="dateOfBirth" [(ngModel)]="newContact.dateOfBirth" [showIcon]="true" inputId="buttondisplay" [showOnFocus]="false" required autofocus fluid />
         <small class="text-red-500" *ngIf="isSubmitted && !newContact.dateOfBirth">Date of birth is required.</small>
       </div>
       <div>
@@ -73,7 +73,7 @@
 
   <ng-template #footer>
     <p-button label="Cancel" icon="pi pi-times" text (click)="hideDialog()" />
-    <p-button label="Save" icon="pi pi-check" (click)="saveContact()" />
+    <p-button label="Save" icon="pi pi-check" (click)="saveContact()" data-testid="save-contact-button"/>
   </ng-template>
 </p-dialog>
 
