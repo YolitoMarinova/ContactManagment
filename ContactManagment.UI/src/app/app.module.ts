@@ -12,8 +12,19 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { DialogModule } from 'primeng/dialog';
+import { TabViewModule } from 'primeng/tabview';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { FormsModule } from '@angular/forms';
+import { DatePickerModule } from 'primeng/datepicker';
 import { provideHttpClient } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeng/themes/aura';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
+import { ToolbarModule } from 'primeng/toolbar';
+import { ConfirmationService } from 'primeng/api';
+
 
 @NgModule({
   declarations: [
@@ -29,9 +40,15 @@ import { provideHttpClient } from '@angular/common/http';
     ButtonModule,
     InputTextModule,
     DialogModule,
+    TabViewModule,
+    DatePickerModule,
+    ConfirmDialogModule,
+    IconFieldModule,
+    InputIconModule,
+    ToolbarModule,
     FormsModule
   ],
-  providers: [provideHttpClient()],
+  providers: [provideHttpClient(), provideAnimationsAsync(), providePrimeNG({ theme: { preset: Aura } }), ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

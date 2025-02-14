@@ -1,1 +1,100 @@
-<p>Hi!</p>
+<!--<p-toolbar styleClass="mb-6">
+  <ng-template #start>
+    <p-button label="New" icon="pi pi-plus" class="mr-2" (onClick)="openNew()" />
+    <p-button severity="danger" label="Delete" icon="pi pi-trash" outlined (onClick)="deleteContacts()" [disabled]="!selectedContacts || !selectedContacts.length" />
+  </ng-template>
+
+  <ng-template #end>
+  </ng-template>
+</p-toolbar>
+
+<p-table #dt [columns]="columns" [value]="(contacts$ | async) ?? []" [paginator]="true" [globalFilterFields]="['firstName', 'surName']" [tableStyle]="{ 'min-width': '75rem' }" [(selection)]="selectedContacts" [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+  <div class="flex items-center justify-between">
+    <h5 class="m-0">Manage Contacts</h5>
+    <p-iconfield>
+      <p-inputicon styleClass="pi pi-search" />-->
+      <!--<input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />-->
+    <!--</p-iconfield>
+  </div>
+  <ng-template #header let-columns>
+    <tr>
+      <th style="width: 3rem">
+        <p-tableHeaderCheckbox />
+      </th>
+      <th *ngFor="let col of columns">
+        {{ col.header }}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template #body let-rowData let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns">
+        {{ rowData[col.field] }}
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template #summary>
+    <div class="flex items-center justify-between">In total there are {{ contactsLength }} contacts.</div>
+  </ng-template>
+</p-table>
+
+<p-dialog [(visible)]="contactDialog" [style]="{ width: '450px' }" header="Contact Details" [modal]="true">
+  <ng-template #content>
+    <div class="flex flex-col gap-6">
+      <div>
+        <label for="firstName" class="block font-bold mb-3">First Name</label>
+        <input type="text" pInputText id="firstName" [(ngModel)]="newContact.firstName" required autofocus fluid />
+        <small class="text-red-500" *ngIf="isSubmitted && !newContact.firstName">First name is required.</small>
+      </div>
+      <div>
+        <label for="surName" class="block font-bold mb-3">Sur Name</label>
+        <input type="text" pInputText id="surName" [(ngModel)]="newContact.surName" required autofocus fluid />
+        <small class="text-red-500" *ngIf="isSubmitted && !newContact.surName">Sur name is required.</small>
+      </div>
+      <div>
+        <label for="dateOfBirth" class="block font-bold mb-3">Date of Birth</label>
+        <p-datepicker [(ngModel)]="newContact.dateOfBirth" [showIcon]="true" inputId="buttondisplay" [showOnFocus]="false" required autofocus fluid />
+        <small class="text-red-500" *ngIf="isSubmitted && !newContact.dateOfBirth">Date of birth is required.</small>
+      </div>
+      <div>
+        <label for="address" class="block font-bold mb-3">Address</label>
+        <input type="text" pInputText id="address" [(ngModel)]="newContact.address" required autofocus fluid />
+        <small class="text-red-500" *ngIf="isSubmitted && !newContact.address">Address is required.</small>
+      </div>
+      <div>
+        <label for="phoneNumber" class="block font-bold mb-3">Phone number</label>
+        <input type="text" pInputText id="phoneNumber" [(ngModel)]="newContact.phoneNumber" required autofocus fluid />
+        <small class="text-red-500" *ngIf="isSubmitted && !newContact.phoneNumber">Phone number is required.</small>
+      </div>
+      <div>
+        <label for="iban" class="block font-bold mb-3">Iban</label>
+        <input type="text" pInputText id="iban" [(ngModel)]="newContact.iban" required autofocus fluid />
+        <small class="text-red-500" *ngIf="isSubmitted && !newContact.iban">Iban is required.</small>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #footer>
+    <p-button label="Cancel" icon="pi pi-times" text (click)="hideDialog()" />
+    <p-button label="Save" icon="pi pi-check" (click)="saveContact()" />
+  </ng-template>
+</p-dialog>
+
+<p-confirmDialog [style]="{ width: '450px' }" />-->
+
+<p-table [columns]="columns" [value]="(contacts$ | async) ?? []" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template #header let-columns>
+    <tr>
+      <th *ngFor="let col of columns">
+        {{ col.header }}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template #body let-rowData let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns">
+        {{ rowData[col.field] }}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
