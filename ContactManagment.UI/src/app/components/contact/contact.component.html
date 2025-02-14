@@ -1,35 +1,32 @@
-<!--<p-toolbar styleClass="mb-6">
+<p-toolbar styleClass="mb-6">
   <ng-template #start>
     <p-button label="New" icon="pi pi-plus" class="mr-2" (onClick)="openNew()" />
-    <p-button severity="danger" label="Delete" icon="pi pi-trash" outlined (onClick)="deleteContacts()" [disabled]="!selectedContacts || !selectedContacts.length" />
   </ng-template>
 
   <ng-template #end>
   </ng-template>
 </p-toolbar>
 
-<p-table #dt [columns]="columns" [value]="(contacts$ | async) ?? []" [paginator]="true" [globalFilterFields]="['firstName', 'surName']" [tableStyle]="{ 'min-width': '75rem' }" [(selection)]="selectedContacts" [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+<p-table [columns]="columns" [value]="(contacts$ | async) ?? []" [tableStyle]="{ 'min-width': '50rem' }" [rowHover]="true">
   <div class="flex items-center justify-between">
     <h5 class="m-0">Manage Contacts</h5>
-    <p-iconfield>
-      <p-inputicon styleClass="pi pi-search" />-->
-      <!--<input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />-->
-    <!--</p-iconfield>
   </div>
   <ng-template #header let-columns>
     <tr>
-      <th style="width: 3rem">
-        <p-tableHeaderCheckbox />
-      </th>
       <th *ngFor="let col of columns">
         {{ col.header }}
       </th>
+      <th style="min-width: 12rem"></th>
     </tr>
   </ng-template>
   <ng-template #body let-rowData let-columns="columns">
     <tr>
       <td *ngFor="let col of columns">
         {{ rowData[col.field] }}
+      </td>
+      <td>
+        <p-button icon="pi pi-pencil" class="mr-2" [rounded]="true" [outlined]="true" (click)="editContact(rowData)" />
+        <p-button icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true" (click)="deleteContact(rowData)" />
       </td>
     </tr>
   </ng-template>
@@ -80,21 +77,4 @@
   </ng-template>
 </p-dialog>
 
-<p-confirmDialog [style]="{ width: '450px' }" />-->
-
-<p-table [columns]="columns" [value]="(contacts$ | async) ?? []" [tableStyle]="{ 'min-width': '50rem' }">
-  <ng-template #header let-columns>
-    <tr>
-      <th *ngFor="let col of columns">
-        {{ col.header }}
-      </th>
-    </tr>
-  </ng-template>
-  <ng-template #body let-rowData let-columns="columns">
-    <tr>
-      <td *ngFor="let col of columns">
-        {{ rowData[col.field] }}
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
+<p-confirmDialog [style]="{ width: '450px' }" />

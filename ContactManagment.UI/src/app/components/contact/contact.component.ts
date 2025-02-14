@@ -22,7 +22,6 @@ export class ContactComponent implements OnInit {
 
   contactsLength: number = 0;
   columns!: Column[];
-  selectedContacts: Contact[] = [];
 
   contactDialog = false;
   newContact: Partial<Contact> = {};
@@ -32,7 +31,6 @@ export class ContactComponent implements OnInit {
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    console.log("HEREEEEEEEEEE0");
     this.store.dispatch(ContactActions.loadContacts());
     this.columns = [
       { field: 'firstName', header: 'First Name' },
@@ -42,10 +40,9 @@ export class ContactComponent implements OnInit {
       { field: 'phoneNumber', header: 'Phone Number' },
       { field: 'iban', header: 'IBAN' }
     ];
-    //this.contacts$.subscribe(contacts => {
-    //  this.contactsLength = contacts.length;
-    //});
-    console.log(this.contacts$);
+    this.contacts$.subscribe(contacts => {
+      this.contactsLength = contacts.length;
+    });
   }
 
   openNew() {
@@ -63,24 +60,22 @@ export class ContactComponent implements OnInit {
   }
 
   saveContact() {
+    const contactToSave = { ...this.newContact };
+    if (contactToSave.dateOfBirth) {
+      const date = new Date(contactToSave.dateOfBirth);
+      contactToSave.dateOfBirth = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+    }
     if (this.isEdit) {
-      this.store.dispatch(ContactActions.updateContact({ contact: this.newContact }));
+      this.store.dispatch(ContactActions.updateContact({ contact: contactToSave }));
     } else {
-      this.store.dispatch(ContactActions.addContact({ contact: this.newContact as Contact }));
+      this.store.dispatch(ContactActions.addContact({ contact: contactToSave as Contact }));
     }
     this.contactDialog = false;
     this.isSubmitted = true;
   }
 
-  deleteContact(id: string) {
-    this.store.dispatch(ContactActions.deleteContact({ id }));
-  }
-
-  deleteContacts() {
-    this.selectedContacts.forEach(contact => {
-      this.store.dispatch(ContactActions.deleteContact({ id: contact.id }));
-    });
-    this.selectedContacts = [];
+  deleteContact(contact: Contact) {
+    this.store.dispatch(ContactActions.deleteContact({ id: contact.id }));
   }
 
   hideDialog() {
