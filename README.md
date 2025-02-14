@@ -2,17 +2,17 @@
 
 ContactManagment.API
 
-Backend project written on C#.
-CQRS
-MeadiatR
-Rich Domain Models
+-- Backend project written on C#.</br>
+-- CQRS</br>
+-- MeadiatR</br>
+-- Rich Domain Models</br>
 
 ContactManagment.UI
 
-Angular fronend project.
-ngrx Store
-PrimeNG components
-Cypress e2e test
+-- Angular fronend project.</br>
+-- ngrx Store</br>
+-- PrimeNG components</br>
+-- Cypress e2e test</br>
 
 ![image](https://github.com/user-attachments/assets/d6622ae9-a6ba-45b1-965d-d4fd6c701e8f)
 
